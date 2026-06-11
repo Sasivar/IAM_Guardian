@@ -69,7 +69,8 @@ async def analyse_policy(policy: dict, semaphore: asyncio.Semaphore, index: int,
                 print(f"  [{index}/{total}] Starting analysis: {policy.get('policy_name', 'unknown')} (Attempt {attempt + 1})")
                 
                 message = await client.messages.create(
-                    model="claude-sonnet-4-5",
+                    #model="claude-sonnet-4-5",
+                    model="claude-haiku-4-5",
                     max_tokens=2500,
                     system=SYSTEM_PROMPT,
                     messages=[{"role": "user", "content": build_prompt(policy)}],
