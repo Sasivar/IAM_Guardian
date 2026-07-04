@@ -18,7 +18,7 @@
 
 As captured in the below image, the platform provides a streamlined **AWS Account Scanner** control panel. Administrators can select from any registered account in the AWS Organization topology and initiate a zero-trust compliance assessment with a single click:
 
-<img width="1916" height="668" alt="image" src="https://github.com/user-attachments/assets/e6ae0dd3-67a1-4ad9-87f0-01e1534c7f83" />
+<img width="1916" height="589" alt="image" src="https://github.com/user-attachments/assets/201749fb-4b57-4aea-93c3-480defabfbca" />
 
 ---
 
