@@ -2,7 +2,7 @@
 
 This document outlines the Phase 1 Infrastructure Provisioning Steps required to configure your multi-account AWS environment before deploying the application code.
 
-📝 Multi-Account Reference Architecture Example
+Multi-Account Reference Architecture Example
 
 To keep this guide production-secure while remaining easy to follow, we use the following dummy AWS Account IDs throughout the setup. Map these to your actual AWS Organization deployment IDs:
 
@@ -15,7 +15,7 @@ Child Account 2: 777788889999
 Child Account 3: 123456789012
 ---
 
-## 🏛️ SECTION 1 — MASTER ACCOUNT CONFIGURATION (111122223333)
+## SECTION 1 — MASTER ACCOUNT CONFIGURATION (111122223333)
 
 Execute these steps while authenticated into your root **Master Management Account**.
 
@@ -66,7 +66,7 @@ Once created, navigate to **S3** $\rightarrow$ **`iam-guardian-master-bucket`** 
 
 Select your newly created `IAMGuardianEC2Role` and add the following four **Inline Policies** by clicking **Add permissions** $\rightarrow$ **Create inline policy** $\rightarrow$ switching to the **JSON** tab:
 
-#### 📄 Inline Policy 1: `AssumeChildRoles`
+#### Inline Policy 1: `AssumeChildRoles`
 
 ```json
 {
@@ -86,7 +86,7 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 ```
 
-#### 📄 Inline Policy 2: `MasterS3AndLLMAccess`
+#### Inline Policy 2: `MasterS3AndLLMAccess`
 
 ```json
 {
@@ -119,7 +119,7 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 ```
 
-#### 📄 Inline Policy 3: `InvokeLambda`
+#### Inline Policy 3: `InvokeLambda`
 
 ```json
 {
@@ -139,7 +139,7 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 ```
 
-#### 📄 Inline Policy 4: `ReadOwnIAM` (Allows self-auditing)
+#### Inline Policy 4: `ReadOwnIAM` (Allows self-auditing)
 
 ```json
 {
@@ -192,13 +192,13 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 Navigate back to **EC2** $\rightarrow$ Select your running `iam-guardian-server` instance $\rightarrow$ Click **Actions** $\rightarrow$ **Security** $\rightarrow$ **Modify IAM role** $\rightarrow$ Select **`IAMGuardianEC2Role`** $\rightarrow$ Click **Update IAM role**.
 
-> 💡 *Note down your EC2 instance's **Public IPv4 address** from the console summary—this value maps your automated frontend variables during Phase 2 deployment.*
+> *Note down your EC2 instance's **Public IPv4 address** from the console summary—this value maps your automated frontend variables during Phase 2 deployment.*
 
 ---
 
-## 👶 SECTION 2 — MEMBER CHILD ACCOUNT PROVISIONING
+## SECTION 2 — MEMBER CHILD ACCOUNT PROVISIONING
 
-> ⚠️ **Prerequisite Execution Rule:** Repeat this section sequentially for each child member account partition inside your enterprise topology: **`444455556666`**, **`777788889999`**, and **`123456789012`**.
+> **Prerequisite Execution Rule:** Repeat this section sequentially for each child member account partition inside your enterprise topology: **`444455556666`**, **`777788889999`**, and **`123456789012`**.
 
 ### Step 4 — Establish the Cross-Account Trust Security Role
 
@@ -351,6 +351,6 @@ Return to your **Lambda Function** workspace panel $\rightarrow$ **Configuration
 
 ---
 
-### 🏁 Next Step
+### Next Step
 
-Once you have repeated Section 2 across all targeted member environments, your AWS backbone network layout is entirely stable. You can now transition directly to **Phase 2 (EC2 Application Software Installation)**!
+Once you have repeated Section 2 across all targeted member environments, your AWS backbone network layout is entirely stable. You can now transition directly to the next step.
