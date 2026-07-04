@@ -57,16 +57,6 @@ The platform implements a highly isolated, cross-account extraction execution mo
 
 ---
 
-## Cyber Security Framework Mapping
-
-IAM Guardian provides active engineering defenses against techniques outlined in the **MITRE ATT&CK Matrix for Cloud**:
-
-* **T1078.004 (Valid Accounts: Cloud Accounts):** Detects unmonitored or stale roles by auditing and surfacing metadata tags tracking inactive credential age factors (`last_used_days_ago`).
-* **T1548.005 (Abuse Privilege Escalation Mechanism):** Flags dangerous wildcard permissions (`Action: *` or `Resource: *`) inside policy statements, moving them immediately into high-visibility RED categories.
-* **T1098 (Account Manipulation):** Scrutinizes broad trust relationship layers to identify and shut down hidden cross-account backdoors or misconfigured tenant handshakes.
-
----
-
 ## Automated Deployment & Setup (EC2)
 
 We provide a fully automated initialization script to provision dependencies, build the frontend package ecosystem, and launch your microservices on a fresh **Ubuntu 22.04** cloud node.
