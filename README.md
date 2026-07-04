@@ -77,7 +77,7 @@ We provide a fully automated initialization script to provision dependencies, bu
 1. **Access Server & Create Script File:**
 Connect via SSH to your clean EC2 instance and spawn a deployment script file:
 ```bash
-sudo nano setup_guardian.sh
+sudo nano installation.sh
 
 ```
 
