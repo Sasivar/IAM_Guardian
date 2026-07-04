@@ -39,10 +39,13 @@ Once created, navigate to **S3** $\rightarrow$ **`iam-guardian-master-bucket`** 
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
+                    "arn:aws:iam::123456789012:role/IAMGuardianCollector-role-038bmes6",
                     "arn:aws:iam::123456789012:role/IAMGuardianScanRole",
                     "arn:aws:iam::777788889999:role/IAMGuardianCollector-role-3h1tnig2",
                     "arn:aws:iam::777788889999:role/IAMGuardianScanRole",
-                    "arn:aws:iam::444455556666:role/IAMGuardianScanRole"
+                    "arn:aws:iam::444455556666:role/IAMGuardianScanRole",
+                    "arn:aws:iam::444455556666:role/IAMGuardianCollector-role-n8133mdq"
+                    
                 ]
             },
             "Action": [
