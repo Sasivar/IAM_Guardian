@@ -101,7 +101,7 @@ sudo nano installation.sh
 
 *Paste the complete bash automation script contents directly into the file window, save (`Ctrl+O`), and exit (`Ctrl+X`).*
 2. **Verify Target Environment Flags:**
-Ensure lines 33–34 match your exact active AWS resource layout definitions:
+Ensure lines 33 - 34 match your exact active AWS resource layout definitions:
 ```bash
 GITHUB_REPO_URL="https://github.com/Sasivar/IAM_Guardian.git"
 MASTER_BUCKET="iam-guardian-master-bucket"
