@@ -30,7 +30,7 @@ When a scan finishes, IAM Guardian displays deep-dive modal cards as shown below
 
 <img width="1021" height="595" alt="image" src="https://github.com/user-attachments/assets/f68e9a27-7fb6-4bd9-9d4b-ea63b2a09a13" />
 
-<img width="1021" height="595" alt="image" src="https://github.com/user-attachments/assets/09e0b2c0-80f3-4650-8cfd-d79e2bf5889e" />
+<img width="1014" height="464" alt="image" src="https://github.com/user-attachments/assets/7f4b7308-ffb3-4af3-a108-1ddaa5e8be45" />
 
 ### Core Components of an AI Audit Card:
 *   **Target Scope Metadata:** Instantly maps the entity type, name, and operational context (e.g., tracking that the role has **Never** been used actively).
