@@ -26,10 +26,9 @@ As captured in the below image, the platform provides a streamlined **AWS Accoun
 
 When a scan finishes, IAM Guardian displays deep-dive modal cards (as shown in `image_f2a3da.png`) detailing the exact risks identified by our specialized engine. The platform provides natural language risk assessments, clear risk factors, and copy-paste remediation rules.
 
-![Uploading image.png…]()
+<img width="1021" height="595" alt="image" src="https://github.com/user-attachments/assets/f68e9a27-7fb6-4bd9-9d4b-ea63b2a09a13" />
 
-
-### 💡 Core Components of an AI Audit Card:
+### Core Components of an AI Audit Card:
 *   **Target Scope Metadata:** Instantly maps the entity type, name, and operational context (e.g., tracking that the role has **Never** been used actively).
 *   **Generative Risk Assessment:** Claude 3.5 Sonnet contextualizes the technical debt—explaining exactly why combining wildcard actions (`ec2:*`) with wildcard resources (`*`) on a dormant credential invites significant privilege escalation surfaces.
 *   **Granular Risk Factors:** Translates JSON statements into plain-English operational warnings (e.g., flags missing MFA conditions for high-impact actions like instance termination).
