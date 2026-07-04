@@ -123,10 +123,9 @@ Once credentials are inputs, the script redirects logs to `/var/log/iam-guardian
 
 1. **Dependency Ingestion:** Running system upgrades and provisioning core execution packages (`python3-pip`, `python3-venv`, `git`, `curl`).
 2. **Node Engine Bootstrapping:** Installs **Node.js v20** and matching NPM packages via NodeSource distribution hooks.
-3. **Dynamic Network Discovery:** Interrogates **IMDSv2** (token-based instance metadata fallback to IMDSv1) to determine the server's external IPv4 mapping dynamically.
-4. **Environment Isolation:** Provisions an isolated Python virtual environment (`venv`) and installs production modules (`fastapi`, `uvicorn`, `boto3`, `python-dotenv`, `reportlab`, `anthropic`).
-5. **Code Ingestion & Dynamic Asset Compilation:** Clones the code tree to `/home/ubuntu/iam-guardian`, runs a custom inline python script to update hardcoded API target lines inside client modules (`App.js`) with the newly fetched public IP, and compiles production UI distributions (`npm run build`).
-6. **Daemon Management:** Deploys services using persistent `nohup` processes:
+3. **Environment Isolation:** Provisions an isolated Python virtual environment (`venv`) and installs production modules (`fastapi`, `uvicorn`, `boto3`, `python-dotenv`, `reportlab`, `anthropic`).
+4. **Code Ingestion & Dynamic Asset Compilation:** Clones the code tree to `/home/ubuntu/iam-guardian`, runs a custom inline python script to update hardcoded API target lines inside client modules (`App.js`) with the newly fetched public IP, and compiles production UI distributions (`npm run build`).
+5. **Daemon Management:** Deploys services using persistent `nohup` processes:
 * **FastAPI application layer** is mapped to port `8000`.
 * **React static bundle build** is served via an unblocked Python HTTP thread on port `3000`.
 
