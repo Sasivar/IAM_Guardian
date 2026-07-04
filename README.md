@@ -14,7 +14,7 @@
 
 ---
 
-## 🖥️ User Interface Dashboard
+## User Interface Dashboard
 
 As captured in the below image, the platform provides a streamlined **AWS Account Scanner** control panel. Administrators can select from any registered account in the AWS Organization topology and initiate a zero-trust compliance assessment with a single click:
 
