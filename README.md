@@ -24,9 +24,13 @@ As captured in the below image, the platform provides a streamlined **AWS Accoun
 
 ## Scan Results & AI Analysis
 
-When a scan finishes, IAM Guardian displays deep-dive modal cards (as shown in `image_f2a3da.png`) detailing the exact risks identified by our specialized engine. The platform provides natural language risk assessments, clear risk factors, and copy-paste remediation rules.
+When a scan finishes, IAM Guardian displays deep-dive modal cards as shown below, detailing the exact risks identified by our specialized engine. The platform provides natural language risk assessments, clear risk factors, and copy-paste remediation rules.
+
+<img width="1234" height="888" alt="image" src="https://github.com/user-attachments/assets/5174d527-8708-470a-beb8-527bf4a0baaa" />
 
 <img width="1021" height="595" alt="image" src="https://github.com/user-attachments/assets/f68e9a27-7fb6-4bd9-9d4b-ea63b2a09a13" />
+
+<img width="1021" height="595" alt="image" src="https://github.com/user-attachments/assets/09e0b2c0-80f3-4650-8cfd-d79e2bf5889e" />
 
 ### Core Components of an AI Audit Card:
 *   **Target Scope Metadata:** Instantly maps the entity type, name, and operational context (e.g., tracking that the role has **Never** been used actively).
