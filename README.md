@@ -34,7 +34,7 @@ When a scan finishes, IAM Guardian displays deep-dive modal cards as shown below
 
 ### Core Components of an AI Audit Card:
 *   **Target Scope Metadata:** Instantly maps the entity type, name, and operational context (e.g., tracking that the role has **Never** been used actively).
-*   **Generative Risk Assessment:** Claude 3.5 Sonnet contextualizes the technical debt—explaining exactly why combining wildcard actions (`ec2:*`) with wildcard resources (`*`) on a dormant credential invites significant privilege escalation surfaces.
+*   **Generative Risk Assessment:** Claude 3.5 Sonnet contextualizes the technical debt explaining exactly why combining wildcard actions (`ec2:*`) with wildcard resources (`*`) on a dormant credential invites significant privilege escalation surfaces.
 *   **Granular Risk Factors:** Translates JSON statements into plain-English operational warnings (e.g., flags missing MFA conditions for high-impact actions like instance termination).
 
 ---
