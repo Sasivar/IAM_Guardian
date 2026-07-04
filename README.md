@@ -10,7 +10,6 @@
 * **Decentralized Serverless Collection:** Uses low-footprint, event-driven AWS Lambda components (`IAMGuardianCollector`) in member accounts to read local configurations securely without ongoing compute costs.
 * **Automated RAG Triage Matrix:** Automatically assesses and categorizes identities into explicit **RED** (Critical), **AMBER** (Moderate), and **GREEN** (Low Risk) status layers.
 * **AI-Engineered Self-Healing Blueprints:** Evaluates complex JSON constructs using Claude to provide human-readable risk justifications and dynamically written, syntactically accurate **Least-Privilege JSON replacements**.
-* **Asynchronous Processing Infrastructure:** Employs non-blocking network polling loops in the client interface combined with a token-bucket backend execution semaphore to parse heavy multi-account payloads concurrently without API rate-limit exhaustion.
 * **Executive Report Generation:** Features a dedicated server-side compiler that builds standardized, page-optimized PDF roadmaps containing visual summaries for cross-functional stakeholders.
 
 ---
