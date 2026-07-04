@@ -96,8 +96,8 @@ AWS_REGION="us-east-1"
 3. **Elevate Permissions & Launch:**
 Provide executable execution flags and invoke the automated sequence as root:
 ```bash
-chmod +x setup_guardian.sh
-sudo ./setup_guardian.sh
+chmod +x installation.sh
+sudo ./installation.sh
 
 ```
 
