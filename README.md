@@ -2,13 +2,11 @@
 
 **IAM Guardian** is an enterprise-grade cloud security posture management platform designed to automate multi-account AWS Identity and Access Management (IAM) auditing. Built as an AI Hackathon prototype, the platform orchestrates decentralized serverless data collectors across member accounts and processes complex permissions vectors through a specialized parallel **Claude 3.5 Sonnet** AI engine to deliver instant risk mitigation blueprints.
 
-Rather than forcing security engineers to manually parse thousands of lines of raw JSON across isolated AWS silos, IAM Guardian aggregates multi-account structures into a single pane of glass—translating configuration debt into an actionable, priority-sorted remediation roadmap.
-
 ---
 
 ## Core Features
 
-* **Multi-Account Topology Control Plane:** A unified, responsive dashboard providing a high-level operational glance at registered Master and Member accounts.
+* **Multi-Account Topology Control Panel:** A unified, responsive dashboard providing a high-level operational glance at registered Master and Member accounts.
 * **Decentralized Serverless Collection:** Uses low-footprint, event-driven AWS Lambda components (`IAMGuardianCollector`) in member accounts to read local configurations securely without ongoing compute costs.
 * **Automated RAG Triage Matrix:** Automatically assesses and categorizes identities into explicit **RED** (Critical), **AMBER** (Moderate), and **GREEN** (Low Risk) status layers.
 * **AI-Engineered Self-Healing Blueprints:** Evaluates complex JSON constructs using Claude to provide human-readable risk justifications and dynamically written, syntactically accurate **Least-Privilege JSON replacements**.
