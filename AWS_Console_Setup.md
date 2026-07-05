@@ -1,18 +1,13 @@
 # AWS Console Setup Guide 🌐
 
-This document outlines the Phase 1 Infrastructure Provisioning Steps required to configure your multi-account AWS environment before deploying the application code.
+This document outlines the **Phase 1 Infrastructure Provisioning Steps** required to configure your multi-account AWS environment before deploying the application code.
 
-**Multi-Account Reference Architecture Example**
-
-To keep this guide production-secure while remaining easy to follow, we use the following dummy AWS Account IDs throughout the setup. Map these to your actual AWS Organization deployment IDs:
-
-**Master Management Account:** 111122223333
-
-**Child Account 1:** 444455556666
-
-**Child Account 2:** 777788889999
-
-**Child Account 3:** 123456789012
+> **Multi-Account Reference Architecture Example**
+> To keep this guide production-secure while remaining easy to follow, we use the following dummy AWS Account IDs throughout the setup. Map these placeholders to your actual AWS Organization deployment IDs:
+> * **Master Management Account:** `111122223333` *(Real ID: `240939826956`)*
+> * **Child Account 1:** `444455556666` *(Real ID: `266889036314`)*
+> * **Child Account 2:** `777788889999` *(Real ID: `796761618689`)*
+> * **Child Account 3:** `123456789012`
 
 ---
 
@@ -39,13 +34,12 @@ Once created, navigate to **S3** $\rightarrow$ **`iam-guardian-master-bucket`** 
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
-                    "arn:aws:iam::123456789012:role/IAMGuardianCollector-role-038bmes6",
                     "arn:aws:iam::123456789012:role/IAMGuardianScanRole",
                     "arn:aws:iam::777788889999:role/IAMGuardianCollector-role-3h1tnig2",
                     "arn:aws:iam::777788889999:role/IAMGuardianScanRole",
                     "arn:aws:iam::444455556666:role/IAMGuardianScanRole",
-                    "arn:aws:iam::444455556666:role/IAMGuardianCollector-role-n8133mdq"
-                    
+                    "arn:aws:iam::123456789012:role/IAMGuardianCollector-role-n8133mdq",
+                    "arn:aws:iam::444455556666:role/IAMGuardianCollector-role-038bmes6"
                 ]
             },
             "Action": [
@@ -90,7 +84,7 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 ```
 
-#### Inline Policy 2: `MasterS3AndLLMAccess`
+#### Inline Policy 2: `MasterS3Access`
 
 ```json
 {
@@ -143,7 +137,7 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 ```
 
-#### Inline Policy 4: `ReadOwnIAM` (Allows self-auditing)
+#### 📄 Inline Policy 4: `ReadOwnIAM`
 
 ```json
 {
@@ -283,7 +277,7 @@ Select your newly created `IAMGuardianScanRole` $\rightarrow$ Click **Add permis
 2. **Function name:** `IAMGuardianCollector`
 3. **Runtime:** Select **Python 3.11**.
 4. **Architecture:** Select **x86_64**.
-5. **Permissions:** Leave default execution role configurations active (Creates standard execution permissions).
+5. **Permissions:** Choose **Create a new execution role** $\rightarrow$ Name it sequentially based on the account profile template (e.g., `IAMGuardianCollector-role-3h1tnig2`).
 6. Click **Create function**.
 
 #### Source Code Synchronization:
@@ -299,10 +293,11 @@ Select your newly created `IAMGuardianScanRole` $\rightarrow$ Click **Add permis
 * Change **Memory:** `256 MB`.
 * Click **Save**.
 
-#### Attach Scoped Policies to the Lambda Execution Profile:
+#### Attach Policies to the Lambda Execution Profile:
 
-1. Navigate to **Configuration** tab $\rightarrow$ **Permissions** panel $\rightarrow$ Click the active text link routing under the **Role name** header to enter the role console page.
-2. Click **Add permissions** $\rightarrow$ **Create inline policy** $\rightarrow$ paste this json policy to permit local read scopes and central S3 delivery pipelines:
+1. Navigate to **Configuration** tab $\rightarrow$ **Permissions** panel $\rightarrow$ Click the active text link under the **Role name** header to open the role in the IAM console.
+2. Click **Add permissions** $\rightarrow$ **Attach policies** $\rightarrow$ Search and add **`AWSLambdaBasicExecutionRole`**.
+3. Click **Add permissions** $\rightarrow$ **Create inline policy** $\rightarrow$ Switch to the **JSON** tab, paste the following policy to permit local IAM auditing and central S3 delivery, and name it `LambdaCollectorPolicy`:
 
 ```json
 {
@@ -343,7 +338,7 @@ Select your newly created `IAMGuardianScanRole` $\rightarrow$ Click **Add permis
 
 ```
 
-#### Enforce Cross-Account Resource Invocations:
+#### Enforce Cross-Account Resource Invocations (Resource-Based Policy):
 
 Return to your **Lambda Function** workspace panel $\rightarrow$ **Configuration** tab $\rightarrow$ **Permissions** sidebar selection $\rightarrow$ Scroll down to **Resource-based policy statements** $\rightarrow$ Click **Add permission**:
 
@@ -353,8 +348,29 @@ Return to your **Lambda Function** workspace panel $\rightarrow$ **Configuration
 * **Action:** `lambda:InvokeFunction`
 * Click **Save**.
 
+*(Note: The underlying resource JSON matching this structural configuration resolves as follows for Child Account 2)*:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "AllowMasterAccountInvoke",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/IAMGuardianEC2Role"
+      },
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:us-east-1:777788889999:function:IAMGuardianCollector"
+    }
+  ]
+}
+
+```
+
 ---
 
 ### Next Step
 
-Once you have repeated Section 2 across all targeted member environments, your AWS backbone network layout is entirely stable. You can now transition directly to the next step.
+Once you have repeated Section 2 across all targeted member environments, your AWS backbone network layout is entirely stable. You can now transition directly to next step!
