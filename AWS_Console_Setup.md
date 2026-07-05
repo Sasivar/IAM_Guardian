@@ -171,7 +171,7 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 ```
 
-### Step 3 — Launch the Control Plane EC2 Host Server
+### Step 3 — Launch the EC2 Host Server
 
 1. Navigate to **EC2** $\rightarrow$ Click **Launch instance**.
 2. **Name:** `iam-guardian-server`
