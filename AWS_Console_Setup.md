@@ -374,4 +374,4 @@ Return to your **Lambda Function** workspace panel $\rightarrow$ **Configuration
 
 ### Next Step
 
-Once you have repeated Section 2 across all targeted member environments, your AWS backbone network layout is entirely stable. You can now transition directly to next step!
+Once you have repeated Section 2 across all targeted member environments, your AWS backbone network layout is entirely stable. You can now transition directly to next step! [Check Readme.md]
