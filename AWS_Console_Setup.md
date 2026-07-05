@@ -138,7 +138,7 @@ Select your newly created `IAMGuardianEC2Role` and add the following four **Inli
 
 ```
 
-#### 📄 Inline Policy 4: `ReadOwnIAM`
+#### Inline Policy 4: `ReadOwnIAM`
 
 ```json
 {
