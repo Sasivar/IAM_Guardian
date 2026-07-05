@@ -2,12 +2,13 @@
 
 This document outlines the **Phase 1 Infrastructure Provisioning Steps** required to configure your multi-account AWS environment before deploying the application code.
 
-> **Multi-Account Reference Architecture Example**
-> To keep this guide production-secure while remaining easy to follow, we use the following dummy AWS Account IDs throughout the setup. Map these placeholders to your actual AWS Organization deployment IDs:
-> * **Master Management Account:** `111122223333` *(Real ID: `240939826956`)*
-> * **Child Account 1:** `444455556666` *(Real ID: `266889036314`)*
-> * **Child Account 2:** `777788889999` *(Real ID: `796761618689`)*
-> * **Child Account 3:** `123456789012`
+**Multi-Account Reference Architecture Example**
+To keep this guide production-secure while remaining easy to follow, we use the following dummy AWS Account IDs throughout the setup. Map these placeholders to your actual AWS Organization deployment IDs:
+
+**Master Management Account:** 111122223333
+**Child Account 1:** 444455556666
+**Child Account 2:** 777788889999
+**Child Account 3:** 123456789012
 
 ---
 
